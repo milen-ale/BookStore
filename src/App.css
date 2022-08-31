@@ -1,9 +1,3 @@
 .App {
   text-align: center;
 }
-
-li {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-}
