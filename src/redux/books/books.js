@@ -17,6 +17,10 @@ const initialState = [
     id: uuidv4(),
     bookName: 'Sample Book Three',
   },
+  {
+    id: uuidv4(),
+    bookName: 'Sample Book four ',
+  },
 ];
 
 export const addBook = (payload) => ({

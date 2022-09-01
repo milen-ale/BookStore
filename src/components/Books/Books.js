@@ -9,7 +9,7 @@ import BookList from './BookList';
 import CreateNewBook from './CreateNewBook';
 import styles from './Books.module.css';
 
-const Books = (props) => {
+function Books(props) {
   const { books } = props;
 
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ const Books = (props) => {
       <CreateNewBook submitBookToStoreProps={submitBookToStore} />
     </div>
   );
-};
+}
 
 const mapStateToProps = (state) => ({
   books: state.booksReducer,
