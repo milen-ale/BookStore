@@ -62,7 +62,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 👤 **Milen**
 
 - GitHub: [milen-ale](https://github.com/milen-ale)
-- Twitter: [@milenalebel2](https://twitter.com/@milenalebel2_)
+- Twitter: [@milenalebel2](https://twitter.com/@milenalebel2)
 - LinkedIn: [@milenalebel](https://www.linkedin.com/in/@milenalebel/)
 
 ## 🤝 Contributing
