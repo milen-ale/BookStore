@@ -1,48 +1,61 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 
 import { v4 as uuidv4 } from 'uuid';
-import { useDispatch, connect } from 'react-redux';
-import { addBook, removeBook } from '../../redux/books/books';
+import { connect, useDispatch } from 'react-redux';
 
 import BookList from './BookList';
 import CreateNewBook from './CreateNewBook';
+import { fetchBooks, addBook, deleteBook } from '../../redux/books/booksActions';
+
 import styles from './Books.module.css';
 
 function Books(props) {
-  const { books } = props;
+  const { fetchBooks, bookData } = props;
+  useEffect(() => {
+    fetchBooks();
+  }, []);
 
   const dispatch = useDispatch();
 
   const removeBookFromStore = (id) => {
-    dispatch(removeBook(id));
+    dispatch(deleteBook(id));
   };
 
-  const submitBookToStore = (title) => {
+  const submitBookToStore = (title, author, category) => {
     const newBook = {
-      id: uuidv4(),
-      bookName: title,
+      item_id: uuidv4(),
+      title: `${title}`,
+      author: `${author}`,
+      category,
     };
     dispatch(addBook(newBook));
+    console.log('add book dispatch ', newBook.title);
   };
 
   return (
     <div className={styles.main_page}>
       <BookList
-        books={books}
+        books={bookData}
         removeBookProps={removeBookFromStore}
       />
+      <div className={styles.line} />
       <CreateNewBook submitBookToStoreProps={submitBookToStore} />
     </div>
   );
 }
 
 const mapStateToProps = (state) => ({
-  books: state.booksReducer,
+  bookData: state.booksReducer.books,
+});
+
+const mapDispatch = (dispatch) => ({
+  fetchBooks: () => dispatch(fetchBooks()),
 });
 
 Books.propTypes = {
-  books: PropTypes.instanceOf(Array).isRequired,
+  bookData: PropTypes.instanceOf(Object).isRequired,
+  fetchBooks: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps)(Books);
+export default connect(mapStateToProps, mapDispatch)(Books);
