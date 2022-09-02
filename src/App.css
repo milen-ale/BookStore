@@ -6,4 +6,5 @@ li {
   display: flex;
   justify-content: center;
   list-style: none;
+  text-align: center;
 }
