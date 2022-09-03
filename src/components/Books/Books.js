@@ -30,7 +30,7 @@ function Books(props) {
       category,
     };
     dispatch(addBook(newBook));
-    console.log('add book dispatch ', newBook.title);
+    console.log('add book dispatch ', newBook.author);
   };
 
   return (
