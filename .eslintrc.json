@@ -10,7 +10,14 @@
       "jsx": true
     },
     "ecmaVersion": 2018,
-    "sourceType": "module"
+    "sourceType": "module",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "projectDependencies": false
+      }
+    ]
+
   },
   "extends": ["airbnb", "plugin:react/recommended", "react-app"],
   "plugins": ["react"],
@@ -21,4 +28,6 @@
     "no-shadow": "off"
   },
   "ignorePatterns": ["dist/", "build/"]
+
 }
+
